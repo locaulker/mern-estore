@@ -11,7 +11,7 @@ const OrderScreen = ({ match }) => {
 
   const dispatch = useDispatch()
 
-  const orderDetails = useSelector(state => state.orderCreate)
+  const orderDetails = useSelector(state => state.orderDetails)
   const { order, loading, error } = orderDetails
 
   if (!loading) {
@@ -26,8 +26,10 @@ const OrderScreen = ({ match }) => {
   }
 
   useEffect(() => {
-    dispatch(getOrderDetails(orderId))
-  }, [])
+    if (!order || order._id !== orderId) {
+      dispatch(getOrderDetails(orderId))
+    }
+  }, [order, orderId])
 
   return loading ? (
     <Loader />
@@ -41,20 +43,39 @@ const OrderScreen = ({ match }) => {
           <ListGroup variant='flush'>
             <ListGroup.Item>
               <h2>Shipping</h2>
-              <strong>Name: </strong> {order.user.name}
-              <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
+              <p>
+                <strong>Name: </strong> {order.user.name}
+              </p>
+              <p>
+                <strong>eMail: </strong>{' '}
+                <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
+              </p>
               <strong>Address:</strong>
               <p>
                 {order.shippingAddress.address}, {order.shippingAddress.city},
                 {order.shippingAddress.postalCode},{' '}
                 {order.shippingAddress.country}
               </p>
+              {order.isDelivered ? (
+                <Message variant='success'>
+                  Delivered on {order.deliveredAt}
+                </Message>
+              ) : (
+                <Message variant='danger'>Not Delivered</Message>
+              )}
             </ListGroup.Item>
 
             <ListGroup.Item>
               <h2>Payment Method</h2>
-              <strong>Method: </strong>
-              {order.paymentMethod}
+              <p>
+                <strong>Method: </strong>
+                {order.paymentMethod}
+              </p>
+              {order.isPaid ? (
+                <Message variant='success'>Paid on {order.paidAt}</Message>
+              ) : (
+                <Message variant='danger'>Not Paid</Message>
+              )}
             </ListGroup.Item>
 
             <ListGroup.Item>
