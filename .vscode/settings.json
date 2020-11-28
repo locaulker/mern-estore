@@ -1,10 +1,14 @@
 {
   "cSpell.words": [
+    "adminmenu",
     "estore",
     "generatetoken",
     "mern",
     "mern estore",
+    "orderlist",
     "paypal",
-    "placeorder"
+    "placeorder",
+    "productlist",
+    "userlist"
   ]
 }
