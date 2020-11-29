@@ -35,6 +35,6 @@ const MODE = process.env.NODE_ENV
 const PORT = process.env.PORT || 5000
 
 app.listen(
-  5000,
-  console.log(`Server running in '${MODE}' mode on port ${PORT}`.yellow.bold)
+  PORT,
+  console.log(`Server running in ${MODE} mode on port ${PORT}`.yellow.bold)
 )
