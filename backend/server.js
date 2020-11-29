@@ -31,10 +31,12 @@ app.get('/api/config/paypal', (req, res) =>
 app.use(notFound)
 app.use(errorHandler)
 
-const MODE = process.env.NODE_ENV
+// const MODE = process.env.NODE_ENV
 const PORT = process.env.PORT || 5000
 
 app.listen(
   PORT,
-  console.log(`Server running in ${MODE} mode on port ${PORT}`.yellow.bold)
+  console.log(
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
+  )
 )
