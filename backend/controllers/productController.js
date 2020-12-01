@@ -59,7 +59,7 @@ const createProduct = asyncHandler(async (req, res) => {
     category: 'Sample category',
     countInStock: 0,
     numReviews: 0,
-    description: 'Sample description'
+    description: 'Sample description',
   })
 
   const createdProduct = await product.save()
@@ -79,7 +79,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     image,
     brand,
     category,
-    countInStock
+    countInStock,
   } = req.body
 
   const product = await Product.findById(req.params.id)
@@ -106,5 +106,5 @@ export {
   getProductById,
   deleteProduct,
   createProduct,
-  updateProduct
+  updateProduct,
 }
