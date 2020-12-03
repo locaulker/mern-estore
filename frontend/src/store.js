@@ -6,11 +6,7 @@ import {
   productDetailsReducer,
   productDeleteReducer,
   productCreateReducer,
-<<<<<<< Updated upstream
-  productUpdateReducer
-=======
   productUpdateReducer,
->>>>>>> Stashed changes
 } from './reducers/productReducers'
 import { cartReducer } from './reducers/cartReducers'
 import {

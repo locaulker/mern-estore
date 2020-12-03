@@ -24,17 +24,12 @@ const ProductEditScreen = ({ match, history }) => {
   const productDetails = useSelector(state => state.productDetails)
   const { loading, error, product } = productDetails
 
-<<<<<<< Updated upstream
   const productUpdate = useSelector(state => state.productUpdate)
   const {
     loading: loadingUpdate,
     error: errorUpdate,
-    success: successUpdate
+    success: successUpdate,
   } = productUpdate
-=======
-  const productDetails = useSelector(state => state.productDetails)
-  const { loading, error, product } = productDetails
->>>>>>> Stashed changes
 
   useEffect(() => {
     if (successUpdate) {
@@ -66,7 +61,7 @@ const ProductEditScreen = ({ match, history }) => {
         brand,
         category,
         description,
-        countInStock
+        countInStock,
       })
     )
   }
