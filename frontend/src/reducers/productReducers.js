@@ -13,9 +13,15 @@ import {
   PRODUCT_CREATE_FAIL,
   PRODUCT_CREATE_RESET,
   PRODUCT_UPDATE_REQUEST,
+<<<<<<< Updated upstream
   PRODUCT_UPDATE_SUCCESS,
   PRODUCT_UPDATE_FAIL,
   PRODUCT_UPDATE_RESET
+=======
+  PRODUCT_UPDATE_FAIL,
+  PRODUCT_UPDATE_SUCCESS,
+  PRODUCT_UPDATE_RESET,
+>>>>>>> Stashed changes
 } from '../constants/productConstants'
 
 export const productListReducer = (state = { products: [] }, action) => {
