@@ -5,9 +5,10 @@ import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
+import Meta from '../components/Meta'
 import {
   listProductDetails,
-  createProductReview,
+  createProductReview
 } from '../actions/productActions'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../constants/productConstants'
 
@@ -27,7 +28,7 @@ const ProductScreen = ({ history, match }) => {
   const productReviewCreate = useSelector(state => state.productReviewCreate)
   const {
     success: successProductReview,
-    error: errorProductReview,
+    error: errorProductReview
   } = productReviewCreate
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const ProductScreen = ({ history, match }) => {
     dispatch(
       createProductReview(match.params.id, {
         rating,
-        comment,
+        comment
       })
     )
   }
@@ -65,6 +66,7 @@ const ProductScreen = ({ history, match }) => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={6}>
               <Image src={product.image} alt={product.name} fluid />
